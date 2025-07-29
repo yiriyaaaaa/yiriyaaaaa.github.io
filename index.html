@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>梅轩宇 - 个人主页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36CFC9',
+                        dark: '#1D2939'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .section-active {
+                @apply text-primary border-primary;
+            }
+            .transition-all-300 {
+                @apply transition-all duration-300;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-dark">
+    <!-- 顶部导航栏 -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex flex-wrap items-center justify-between">
+            <h1 class="text-2xl font-bold text-primary">
+                <span class="zh">梅轩宇 - 个人主页</span>
+                <span class="en hidden">Mei Xuanyu - Personal Homepage</span>
+            </h1>
+            
+            <!-- 语言切换按钮 -->
+            <div class="flex items-center space-x-4">
+                <button id="lang-zh" class="px-3 py-1 rounded bg-primary text-white">中文</button>
+                <button id="lang-en" class="px-3 py-1 rounded bg-gray-200 text-gray-700">English</button>
+            </div>
+        </div>
+        
+        <!-- 导航菜单 -->
+        <nav class="container mx-auto px-4 border-t">
+            <ul class="flex flex-wrap py-2 gap-x-6 gap-y-1">
+                <li><a href="#home" class="nav-link section-active py-1 border-b-2 border-transparent transition-all-300" data-section="home">
+                    <span class="zh">首页</span>
+                    <span class="en hidden">Home</span>
+                </a></li>
+                <li><a href="#education" class="nav-link py-1 border-b-2 border-transparent transition-all-300" data-section="education">
+                    <span class="zh">教育背景</span>
+                    <span class="en hidden">Education</span>
+                </a></li>
+                <li><a href="#projects" class="nav-link py-1 border-b-2 border-transparent transition-all-300" data-section="projects">
+                    <span class="zh">项目经历</span>
+                    <span class="en hidden">Projects</span>
+                </a></li>
+                <li><a href="#skills" class="nav-link py-1 border-b-2 border-transparent transition-all-300" data-section="skills">
+                    <span class="zh">技能</span>
+                    <span class="en hidden">Skills</span>
+                </a></li>
+                <li><a href="#awards" class="nav-link py-1 border-b-2 border-transparent transition-all-300" data-section="awards">
+                    <span class="zh">奖项</span>
+                    <span class="en hidden">Awards</span>
+                </a></li>
+                <li><a href="#activities" class="nav-link py-1 border-b-2 border-transparent transition-all-300" data-section="activities">
+                    <span class="zh">其他经历</span>
+                    <span class="en hidden">Activities</span>
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-4 pt-28 pb-16">
+        <!-- 首页 -->
+        <section id="home" class="section-content">
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="md:w-1/2">
+                    <h2 class="text-4xl font-bold mb-6">
+                        <span class="zh">梅轩宇</span>
+                        <span class="en hidden">Mei Xuanyu</span>
+                    </h2>
+                    <div class="space-y-3 text-lg">
+                        <p>
+                            <span class="zh">2005.7.8</span>
+                            <span class="en hidden">2005.7.8</span>
+                        </p>
+                        <p>
+                            <span class="zh">共青团员</span>
+                            <span class="en hidden">Communist Youth League Member</span>
+                        </p>
+                        <p>
+                            <span class="zh">中国上海</span>
+                            <span class="en hidden">Shanghai,China</span>
+                        </p>
+                        <div class="mt-6 space-y-2">
+                            <p class="flex items-center">
+                                <i class="fa fa-phone w-6 text-primary"></i>
+                                <span>18823423578</span>
+                            </p>
+                            <p class="flex items-center">
+                                <i class="fa fa-envelope w-6 text-primary"></i>
+                                <span>qinca-omei@sjtu.edu.cn</span>
+                            </p>
+                            <p class="flex items-center">
+                                <i class="fa fa-weixin w-6 text-primary"></i>
+                                <span>ccCccmxy2906659121</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="w-64 h-64 bg-primary/10 rounded-full flex items-center justify-center text-7xl text-primary">
+                        <i class="fa fa-user"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 教育背景 -->
+        <section id="education" class="section-content hidden">
+            <h2 class="text-3xl font-bold mb-6 pb-2 border-b">
+                <span class="zh">教育背景</span>
+                <span class="en hidden">Education</span>
+            </h2>
+            <div class="bg-white rounded-lg shadow p-6 mb-6">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                    <h3 class="text-xl font-semibold">
+                        <span class="zh">深圳中学（高中）</span>
+                        <span class="en hidden">Shenzhen Middle School（High school）</span>
+                    </h3>
+                    <span class="text-gray-600">2020.09 - 2023.07</span>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6 mb-6">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                    <h3 class="text-xl font-semibold">
+                        <span class="zh">上海交通大学 - 信息工程（本科）</span>
+                        <span class="en hidden">Shanghai Jiao Tong University - Information Engineering（Bachelor's degree）</span>
+                    </h3>
+                    <span class="text-gray-600">2023.09 - 2027.07</span>
+                </div>
+                <div class="space-y-3">
+                    <p>
+                        <span class="zh">学积分：90.473/100；</span>
+                        <span class="zh">学积分排名：13/129；</span>
+                        <span class="zh">绩点：3.9/4.3；</span>
+                        <span class="zh">绩点排名：11/129</span>
+                        <span class="en hidden">Score: 90.473/100; </span>
+                        <span class="en hidden">Score Ranking: 13/129; </span>
+                        <span class="en hidden">GPA: 3.9/4.3; </span>
+                        <span class="en hidden">GPA Ranking: 3.9/4.3</span>
+                    </p>
+                    
+                    <div>
+                        <h4 class="font-semibold mb-1">
+                            <span class="zh">主修课程：</span>
+                            <span class="en hidden">Major Courses:</span>
+                        </h4>
+                        <p>
+                            <span class="zh">信号与系统、数据结构、数字电子技术、嵌入式系统与接口技术</span>
+                            <span class="en hidden">Signals and Systems, Data Structures, Digital Electronics, Embedded Systems</span>
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold mb-1">
+                            <span class="zh">辅修课程：</span>
+                            <span class="en hidden">Minor Courses:</span>
+                        </h4>
+                        <p>
+                            <span class="zh">计量经济学、经济学原理、金融工程</span>
+                            <span class="en hidden">Econometrics, Principles of Economics, Financial Engineering</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目经历 -->
+        <section id="projects" class="section-content hidden">
+            <h2 class="text-3xl font-bold mb-6 pb-2 border-b">
+                <span class="zh">项目经历</span>
+                <span class="en hidden">Projects</span>
+            </h2>
+            
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h3 class="text-xl font-semibold mb-2">2024 美国大学生数学建模竞赛</h3>
+                    <div class="text-gray-500 text-sm mb-2">
+                        <span class="zh">2024.2</span>
+                        <span class="en hidden">2024.1</span>
+                    </div>
+                    <p>
+                        <span class="zh">负责模型设计及代码部分，使用Python、MATLAB进行数学建模。设计用于评估灾后房屋受损程度及房屋价值的数学模型，制定房屋保险。利用TOPSIS方法、GLM线性模型、高斯滤波函数解决问题。</span>
+                        <span class="en hidden">Responsible for model design and coding using Python and MATLAB. Designed mathematical models for assessing post-disaster housing damage and value, formulated housing insurance. Used TOPSIS method, GLM linear model, and Gaussian filter function to solve problems.</span>
+                    </p>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h3 class="text-xl font-semibold mb-2">
+                        <span class="zh">电子称开发</span>
+                        <span class="en hidden">Electronic Scale Design</span>
+                    </h3>
+                    <div class="text-gray-500 text-sm mb-2">
+                        <span class="zh">2024.2-2024.6</span>
+                        <span class="en hidden">2024.1</span>
+                    </div>
+                    <p>
+                        <span class="zh">使用MSP-EXP430F5529 LaunchPad+重力传感器。编写开机自检、用户标定等中断服务程序、并行程序代码，将数据信息处理成物体质量信息并输出串口监视器。</span>
+                        <span class="en hidden">Used MSP-EXP430F5529 LaunchPad + gravity sensor. Wrote interrupt service programs and parallel code for power-on self-test and user calibration, processed data into mass information and output to serial monitor.</span>
+                    </p>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h3 class="text-xl font-semibold mb-2">
+                        <span class="zh">上海交通大学暑期科研见习 - 生成式人工智能初探索</span>
+                        <span class="en hidden">SJTU Summer Research - Generative AI Exploration</span>
+                    </h3>
+                    <div class="text-gray-500 text-sm mb-2">
+                        <span class="zh">2024.7-2024.8</span>
+                        <span class="en hidden">2024.7-2024.8</span>
+                    </div>
+                    <p>
+                        <span class="zh">结合Github开源项目Opensora，阅读扩散模型文献。借助云计算服务复现实验结果，调整Opensora参数生成30s视频，设计代码生成图片。</span>
+                        <span class="en hidden">Combined with Github open source project Opensora, studied diffusion model literature. Reproduced experimental results using cloud computing services, adjusted Opensora parameters to generate 30s videos, and designed code for image generation.</span>
+                    </p>
+                </div>
+                        
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h3 class="text-xl font-semibold mb-2">
+                        <span class="zh">元件阻抗参数测量设计</span>
+                        <span class="en hidden">Component Impedance Measurement Design</span>
+                    </h3>
+                    <div class="text-gray-500 text-sm mb-2">
+                        <span class="zh">2024.9-2025.1</span>
+                        <span class="en hidden">2024.9-2024.1</span>
+                    </div>
+                    <p>
+                        <span class="zh">FPGA时序逻辑电路编程，NI-Multisim设计阻抗测量电路，搭建电路测量给定元件参数，得到模拟信号并转换成数字信号通过示波器输出，测量误差小于1%。</span>
+                        <span class="en hidden">FPGA timing logic circuit programming, designed impedance measurement circuit with NI-Multisim, built circuit to measure component parameters, converted analog signals to digital signals output through oscilloscope with measurement error less than 1%.</span>
+                    </p>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h3 class="text-xl font-semibold mb-2">
+                        <span class="zh">发射机-接收机联合系统开发</span>
+                        <span class="en hidden">Transmitter-Receiver Joint System Design</span>
+                    </h3>
+                    <div class="text-gray-500 text-sm mb-2">
+                        <span class="zh">2025.2-2025.6</span>
+                        <span class="en hidden">2025.2-2025.6</span>
+                    </div>
+                    <p>
+                        <span class="zh">担任组长及软件工程师，基于TM4C1294C板卡开发发射机-接收机联合系统，实现双端通信。系统实现收发双通道温度信号、电压信号；设计UI界面可键控设置通信频率及声量；双端可播放指定歌曲；接收端实现录音功能。</span>
+                        <span class="en hidden">Served as the team leader and software engineer, developed a transmitter receiver joint system based on the TM4C1294C board, and achieved dual end communication. The system realizes the transmission and reception of dual channel temperature signals and voltage signals; Design a UI interface that can be key controlled to set communication frequency and volume; Both ends can play specified songs; The receiving end implements recording function.</span>
+                    </p>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h3 class="text-xl font-semibold mb-2">
+                        <span class="zh">数字时钟开发</span>
+                        <span class="en hidden">Digital Clock Design</span>
+                    </h3>
+                    <div class="text-gray-500 text-sm mb-2">
+                        <span class="zh">2025.5-2025.6</span>
+                        <span class="en hidden">2025.5-2024.6</span>
+                    </div>
+                    <p>
+                        <span class="zh">基于TMC1294C板卡开发数字时钟系统，实现日期-时刻流水灯显示，闹钟提示功能。时钟可键控设置当前日期、当前时间、闹钟时间；可通过UART虚拟串口指令设置并获取对应信息。</span>
+                        <span class="en hidden">Develop a digital clock system based on TMC1294C board to achieve date time flow light display and alarm clock prompt function. The clock can be key controlled to set the current date, current time, and alarm time; You can set and obtain corresponding information through UART virtual serial port commands.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 技能 -->
+        <section id="skills" class="section-content hidden">
+            <h2 class="text-3xl font-bold mb-6 pb-2 border-b">
+                <span class="zh">技能</span>
+                <span class="en hidden">Skills</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center">
+                        <i class="fa fa-language text-primary mr-2"></i>
+                        <span class="zh">语言能力</span>
+                        <span class="en hidden">Language</span>
+                    </h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fa fa-check-circle text-green-500 mr-2"></i>
+                            <span>CET-4</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-check-circle text-green-500 mr-2"></i>
+                            <span>CET-6</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center">
+                        <i class="fa fa-code text-primary mr-2"></i>
+                        <span class="zh">编程技能</span>
+                        <span class="en hidden">Programming</span>
+                    </h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fa fa-check-circle text-green-500 mr-2"></i>
+                            <span>
+                                <span class="zh">C++：熟悉现代特性，熟练使用STL容器、算法、迭代器</span>
+                                <span class="en hidden">C++: Familiar with modern features, STL containers and algorithms</span>
+                            </span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-check-circle text-green-500 mr-2"></i>
+                            <span>
+                                <span class="zh">Python：熟悉numpy, re, requests, matplotlib模块，pytorch架构</span>
+                                <span class="en hidden">Python: Familiar with numpy, requests, matplotlib, pytorch</span>
+                            </span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-check-circle text-green-500 mr-2"></i>
+                            <span>
+                                <span class="zh">Verilog：熟悉FPGA时序逻辑电路开发</span>
+                                <span class="en hidden">Verilog: Familiar with FPGA timing logic development</span>
+                            </span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-check-circle text-green-500 mr-2"></i>
+                            <span>
+                                <span class="zh">MATLAB：熟悉基础语法及神经网络算法代码</span>
+                                <span class="en hidden">MATLAB: Familiar with syntax and neural network algorithms</span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center">
+                        <i class="fa fa-wrench text-primary mr-2"></i>
+                        <span class="zh">工具技能</span>
+                        <span class="en hidden">Tools</span>
+                    </h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fa fa-check-circle text-green-500 mr-2"></i>
+                            <span>
+                                <span class="zh">Linux：熟悉命令行操作、shell脚本、权限管理</span>
+                                <span class="en hidden">Linux: Familiar with command line, shell scripts, permissions</span>
+                            </span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-check-circle text-green-500 mr-2"></i>
+                            <span>
+                                <span class="zh">Git等项目管理工具</span>
+                                <span class="en hidden">Git and project management tools</span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center">
+                        <i class="fa fa-ellipsis-h text-primary mr-2"></i>
+                        <span class="zh">其他技能</span>
+                        <span class="en hidden">Others</span>
+                    </h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fa fa-check-circle text-green-500 mr-2"></i>
+                            <span>Latex</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-check-circle text-green-500 mr-2"></i>
+                            <span>STATA-MP</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 奖项 -->
+        <section id="awards" class="section-content hidden">
+            <h2 class="text-3xl font-bold mb-6 pb-2 border-b">
+                <span class="zh">奖项</span>
+                <span class="en hidden">Awards</span>
+            </h2>
+            
+            <div class="bg-white rounded-lg shadow p-6">
+                <ul class="space-y-4">
+                    <li class="flex">
+                        <div class="min-w-[80px] text-center">
+                            <div class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary font-medium">2024</div>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">
+                                <span class="zh">第十五届全国大学生数学竞赛一等奖</span>
+                                <span class="en hidden">15th National College Student Mathematics Competition First Prize</span>
+                            </h4>
+                        </div>
+                    </li>
+                    <li class="flex">
+                        <div class="min-w-[80px] text-center">
+                            <div class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary font-medium">2024</div>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">
+                                <span class="zh">上海交通大学2024年度本科生C等奖学金</span>
+                                <span class="en hidden">SJTU 2024 Undergraduate Scholarship (Grade C)</span>
+                            </h4>
+                        </div>
+                    </li>
+                    <li class="flex">
+                        <div class="min-w-[80px] text-center">
+                            <div class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary font-medium">2024</div>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">
+                                <span class="zh">美国大学生数学建模竞赛M奖</span>
+                                <span class="en hidden">MCM M Award</span>
+                            </h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 其他经历 -->
+        <section id="activities" class="section-content hidden">
+            <h2 class="text-3xl font-bold mb-6 pb-2 border-b">
+                <span class="zh">其他经历</span>
+                <span class="en hidden">Activities</span>
+            </h2>
+            
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                        <h3 class="text-xl font-semibold">
+                            <span class="zh">学生会 - 副主席</span>
+                            <span class="en hidden">Student Union - Vice President</span>
+                        </h3>
+                        <span class="text-gray-600">2018.11-2019.6</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow p-6">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                        <h3 class="text-xl font-semibold">
+                            <span class="zh">全国大学生创新创业大赛志愿者</span>
+                            <span class="en hidden">Volunteer, 2024 National College Student Innovation Competition</span>
+                        </h3>
+                        <span class="text-gray-600">2024.12</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow p-6">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                        <h3 class="text-xl font-semibold">
+                            <span class="zh">香港理工大学暑期国际学校 - 交换生</span>
+                            <span class="en hidden">Hong Kong Polytechnic University International Summer School - Exchange Student</span>
+                        </h3>
+                        <span class="text-gray-600">2025.7-2025.8<Student/span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="zh">© 2025 梅轩宇的个人主页</p>
+                    <p class="en hidden">© 2025 Mei Xuanyu's Personal Homepage</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-white hover:text-primary transition-colors">
+                        <i class="fa fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-primary transition-colors">
+                        <i class="fa fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-primary transition-colors">
+                        <i class="fa fa-weibo text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 导航和板块切换功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 导航链接点击事件
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section-content');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // 移除所有激活状态
+                    navLinks.forEach(l => l.classList.remove('section-active'));
+                    // 添加当前激活状态
+                    this.classList.add('section-active');
+                    
+                    // 隐藏所有板块
+                    sections.forEach(section => section.classList.add('hidden'));
+                    // 显示对应板块
+                    const targetSection = this.getAttribute('data-section');
+                    document.getElementById(targetSection).classList.remove('hidden');
+                });
+            });
+            
+            // 语言切换功能
+            const langZhBtn = document.getElementById('lang-zh');
+            const langEnBtn = document.getElementById('lang-en');
+            const zhElements = document.querySelectorAll('.zh');
+            const enElements = document.querySelectorAll('.en');
+            
+            langZhBtn.addEventListener('click', function() {
+                zhElements.forEach(el => el.classList.remove('hidden'));
+                enElements.forEach(el => el.classList.add('hidden'));
+                langZhBtn.classList.add('bg-primary', 'text-white');
+                langZhBtn.classList.remove('bg-gray-200', 'text-gray-700');
+                langEnBtn.classList.add('bg-gray-200', 'text-gray-700');
+                langEnBtn.classList.remove('bg-primary', 'text-white');
+            });
+            
+            langEnBtn.addEventListener('click', function() {
+                zhElements.forEach(el => el.classList.add('hidden'));
+                enElements.forEach(el => el.classList.remove('hidden'));
+                langEnBtn.classList.add('bg-primary', 'text-white');
+                langEnBtn.classList.remove('bg-gray-200', 'text-gray-700');
+                langZhBtn.classList.add('bg-gray-200', 'text-gray-700');
+                langZhBtn.classList.remove('bg-primary', 'text-white');
+            });
+            
+            // 滚动时导航栏样式变化
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('py-1', 'shadow-lg');
+                } else {
+                    header.classList.remove('py-1', 'shadow-lg');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
