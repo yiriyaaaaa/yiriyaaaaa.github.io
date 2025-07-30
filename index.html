@@ -33,6 +33,15 @@
             .transition-all-300 {
                 @apply transition-all duration-300;
             }
+            .experience-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+            }
+            .experience-item:hover .experience-content {
+                max-height: 500px;
+                transition: max-height 0.5s ease-in;
+            }
         }
     </style>
 </head>
@@ -63,9 +72,9 @@
                     <span class="zh">教育背景</span>
                     <span class="en hidden">Education</span>
                 </a></li>
-                <li><a href="#projects" class="nav-link py-1 border-b-2 border-transparent transition-all-300" data-section="projects">
-                    <span class="zh">项目经历</span>
-                    <span class="en hidden">Projects</span>
+                <li><a href="#experiences" class="nav-link py-1 border-b-2 border-transparent transition-all-300" data-section="experiences">
+                    <span class="zh">个人经历</span>
+                    <span class="en hidden">Experiences</span>
                 </a></li>
                 <li><a href="#skills" class="nav-link py-1 border-b-2 border-transparent transition-all-300" data-section="skills">
                     <span class="zh">技能</span>
@@ -74,10 +83,6 @@
                 <li><a href="#awards" class="nav-link py-1 border-b-2 border-transparent transition-all-300" data-section="awards">
                     <span class="zh">奖项</span>
                     <span class="en hidden">Awards</span>
-                </a></li>
-                <li><a href="#activities" class="nav-link py-1 border-b-2 border-transparent transition-all-300" data-section="activities">
-                    <span class="zh">其他经历</span>
-                    <span class="en hidden">Activities</span>
                 </a></li>
             </ul>
         </nav>
@@ -93,31 +98,38 @@
                         <span class="zh">梅轩宇</span>
                         <span class="en hidden">Mei Xuanyu</span>
                     </h2>
-                    <div class="space-y-3 text-lg">
-                        <p>
+                   <div class="space-y-3 text-lg">
+                        <p class="flex items-center">
+                            <i class="fa fa-birthday-cake w-6 text-primary mr-2"></i>
                             <span class="zh">2005.7.8</span>
                             <span class="en hidden">2005.7.8</span>
                         </p>
-                        <p>
+                        <p class="flex items-center">
+                            <i class="fa fa-flag w-6 text-primary mr-2"></i>
                             <span class="zh">共青团员</span>
                             <span class="en hidden">Communist Youth League Member</span>
                         </p>
-                        <p>
+                        <p class="flex items-center">
+                            <i class="fa fa-map-marker w-6 text-primary mr-2"></i>
                             <span class="zh">中国上海</span>
                             <span class="en hidden">Shanghai,China</span>
                         </p>
                         <div class="mt-6 space-y-2">
                             <p class="flex items-center">
-                                <i class="fa fa-phone w-6 text-primary"></i>
+                                <i class="fa fa-phone w-6 text-primary mr-2"></i>
                                 <span>18823423578</span>
                             </p>
                             <p class="flex items-center">
-                                <i class="fa fa-envelope w-6 text-primary"></i>
+                                <i class="fa fa-envelope w-6 text-primary mr-2"></i>
                                 <span>qinca-omei@sjtu.edu.cn</span>
                             </p>
                             <p class="flex items-center">
-                                <i class="fa fa-weixin w-6 text-primary"></i>
+                                <i class="fa fa-weixin w-6 text-primary mr-2"></i>
                                 <span>ccCccmxy2906659121</span>
+                            </p>
+                            <p class="flex items-center">
+                                <i class="fa fa-qq w-6 text-primary mr-2"></i>
+                                <span>1319835613</span>
                             </p>
                         </div>
                     </div>
@@ -190,95 +202,151 @@
             </div>
         </section>
 
-        <!-- 项目经历 -->
-        <section id="projects" class="section-content hidden">
+        <!-- 个人经历（合并项目经历和其他经历） -->
+        <section id="experiences" class="section-content hidden">
             <h2 class="text-3xl font-bold mb-6 pb-2 border-b">
-                <span class="zh">项目经历</span>
-                <span class="en hidden">Projects</span>
+                <span class="zh">个人经历</span>
+                <span class="en hidden">Experiences</span>
             </h2>
             
-            <div class="space-y-6">
-                <div class="bg-white rounded-lg shadow p-6">
-                    <h3 class="text-xl font-semibold mb-2">2024 美国大学生数学建模竞赛</h3>
-                    <div class="text-gray-500 text-sm mb-2">
-                        <span class="zh">2024.2</span>
-                        <span class="en hidden">2024.1</span>
+            <!-- 经历类型切换按钮 -->
+            <div class="mb-6 flex space-x-4">
+                <button id="btn-projects" class="px-4 py-2 rounded bg-primary text-white transition-all-300">
+                    <span class="zh">项目经历</span>
+                    <span class="en hidden">Projects</span>
+                </button>
+                <button id="btn-activities" class="px-4 py-2 rounded bg-gray-200 text-gray-700 transition-all-300">
+                    <span class="zh">其他经历</span>
+                    <span class="en hidden">Other Activities</span>
+                </button>
+            </div>
+            
+            <!-- 项目经历 -->
+            <div id="projects-content" class="space-y-4">
+                <div class="experience-item bg-white rounded-lg shadow p-6 cursor-pointer">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                        <h3 class="text-xl font-semibold">2024 美国大学生数学建模竞赛</h3>
+                        <span class="text-gray-500 text-sm">2024.2</span>
                     </div>
-                    <p>
-                        <span class="zh">负责模型设计及代码部分，使用Python、MATLAB进行数学建模。设计用于评估灾后房屋受损程度及房屋价值的数学模型，制定房屋保险。利用TOPSIS方法、GLM线性模型、高斯滤波函数解决问题。</span>
-                        <span class="en hidden">Responsible for model design and coding using Python and MATLAB. Designed mathematical models for assessing post-disaster housing damage and value, formulated housing insurance. Used TOPSIS method, GLM linear model, and Gaussian filter function to solve problems.</span>
-                    </p>
+                    <div class="experience-content pt-4 border-t border-gray-100">
+                        <p>
+                            <span class="zh">负责模型设计及代码部分，使用Python、MATLAB进行数学建模。设计用于评估灾后房屋受损程度及房屋价值的数学模型，制定房屋保险。利用TOPSIS方法、GLM线性模型、高斯滤波函数解决问题。</span>
+                            <span class="en hidden">Responsible for model design and coding using Python and MATLAB. Designed mathematical models for assessing post-disaster housing damage and value, formulated housing insurance. Used TOPSIS method, GLM linear model, and Gaussian filter function to solve problems.</span>
+                        </p>
+                    </div>
                 </div>
-                <div class="bg-white rounded-lg shadow p-6">
-                    <h3 class="text-xl font-semibold mb-2">
-                        <span class="zh">电子称开发</span>
-                        <span class="en hidden">Electronic Scale Design</span>
-                    </h3>
-                    <div class="text-gray-500 text-sm mb-2">
-                        <span class="zh">2024.2-2024.6</span>
-                        <span class="en hidden">2024.1</span>
+                
+                <div class="experience-item bg-white rounded-lg shadow p-6 cursor-pointer">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                        <h3 class="text-xl font-semibold">
+                            <span class="zh">电子称开发</span>
+                            <span class="en hidden">Electronic Scale Design</span>
+                        </h3>
+                        <span class="text-gray-500 text-sm">2024.2-2024.6</span>
                     </div>
-                    <p>
-                        <span class="zh">使用MSP-EXP430F5529 LaunchPad+重力传感器。编写开机自检、用户标定等中断服务程序、并行程序代码，将数据信息处理成物体质量信息并输出串口监视器。</span>
-                        <span class="en hidden">Used MSP-EXP430F5529 LaunchPad + gravity sensor. Wrote interrupt service programs and parallel code for power-on self-test and user calibration, processed data into mass information and output to serial monitor.</span>
-                    </p>
+                    <div class="experience-content pt-4 border-t border-gray-100">
+                        <p>
+                            <span class="zh">使用MSP-EXP430F5529 LaunchPad+重力传感器。编写开机自检、用户标定等中断服务程序、并行程序代码，将数据信息处理成物体质量信息并输出串口监视器。</span>
+                            <span class="en hidden">Used MSP-EXP430F5529 LaunchPad + gravity sensor. Wrote interrupt service programs and parallel code for power-on self-test and user calibration, processed data into mass information and output to serial monitor.</span>
+                        </p>
+                    </div>
                 </div>
-                <div class="bg-white rounded-lg shadow p-6">
-                    <h3 class="text-xl font-semibold mb-2">
-                        <span class="zh">上海交通大学暑期科研见习 - 生成式人工智能初探索</span>
-                        <span class="en hidden">SJTU Summer Research - Generative AI Exploration</span>
-                    </h3>
-                    <div class="text-gray-500 text-sm mb-2">
-                        <span class="zh">2024.7-2024.8</span>
-                        <span class="en hidden">2024.7-2024.8</span>
+                
+                <div class="experience-item bg-white rounded-lg shadow p-6 cursor-pointer">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                        <h3 class="text-xl font-semibold">
+                            <span class="zh">上海交通大学暑期科研见习 - 生成式人工智能初探索</span>
+                            <span class="en hidden">SJTU Summer Research - Generative AI Exploration</span>
+                        </h3>
+                        <span class="text-gray-500 text-sm">2024.7-2024.8</span>
                     </div>
-                    <p>
-                        <span class="zh">结合Github开源项目Opensora，阅读扩散模型文献。借助云计算服务复现实验结果，调整Opensora参数生成30s视频，设计代码生成图片。</span>
-                        <span class="en hidden">Combined with Github open source project Opensora, studied diffusion model literature. Reproduced experimental results using cloud computing services, adjusted Opensora parameters to generate 30s videos, and designed code for image generation.</span>
-                    </p>
+                    <div class="experience-content pt-4 border-t border-gray-100">
+                        <p>
+                            <span class="zh">结合Github开源项目Opensora，阅读扩散模型文献。借助云计算服务复现实验结果，调整Opensora参数生成30s视频，设计代码生成图片。</span>
+                            <span class="en hidden">Combined with Github open source project Opensora, studied diffusion model literature. Reproduced experimental results using cloud computing services, adjusted Opensora parameters to generate 30s videos, and designed code for image generation.</span>
+                        </p>
+                    </div>
                 </div>
-                        
-                <div class="bg-white rounded-lg shadow p-6">
-                    <h3 class="text-xl font-semibold mb-2">
-                        <span class="zh">元件阻抗参数测量设计</span>
-                        <span class="en hidden">Component Impedance Measurement Design</span>
-                    </h3>
-                    <div class="text-gray-500 text-sm mb-2">
-                        <span class="zh">2024.9-2025.1</span>
-                        <span class="en hidden">2024.9-2024.1</span>
+                
+                <div class="experience-item bg-white rounded-lg shadow p-6 cursor-pointer">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                        <h3 class="text-xl font-semibold">
+                            <span class="zh">元件阻抗参数测量设计</span>
+                            <span class="en hidden">Component Impedance Measurement Design</span>
+                        </h3>
+                        <span class="text-gray-500 text-sm">2024.9-2025.1</span>
                     </div>
-                    <p>
-                        <span class="zh">FPGA时序逻辑电路编程，NI-Multisim设计阻抗测量电路，搭建电路测量给定元件参数，得到模拟信号并转换成数字信号通过示波器输出，测量误差小于1%。</span>
-                        <span class="en hidden">FPGA timing logic circuit programming, designed impedance measurement circuit with NI-Multisim, built circuit to measure component parameters, converted analog signals to digital signals output through oscilloscope with measurement error less than 1%.</span>
-                    </p>
+                    <div class="experience-content pt-4 border-t border-gray-100">
+                        <p>
+                            <span class="zh">FPGA时序逻辑电路编程，NI-Multisim设计阻抗测量电路，搭建电路测量给定元件参数，得到模拟信号并转换成数字信号通过示波器输出，测量误差小于1%。</span>
+                            <span class="en hidden">FPGA timing logic circuit programming, designed impedance measurement circuit with NI-Multisim, built circuit to measure component parameters, converted analog signals to digital signals output through oscilloscope with measurement error less than 1%.</span>
+                        </p>
+                    </div>
                 </div>
-                <div class="bg-white rounded-lg shadow p-6">
-                    <h3 class="text-xl font-semibold mb-2">
-                        <span class="zh">发射机-接收机联合系统开发</span>
-                        <span class="en hidden">Transmitter-Receiver Joint System Design</span>
-                    </h3>
-                    <div class="text-gray-500 text-sm mb-2">
-                        <span class="zh">2025.2-2025.6</span>
-                        <span class="en hidden">2025.2-2025.6</span>
+                
+                <div class="experience-item bg-white rounded-lg shadow p-6 cursor-pointer">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                        <h3 class="text-xl font-semibold">
+                            <span class="zh">发射机-接收机联合系统开发</span>
+                            <span class="en hidden">Transmitter-Receiver Joint System Design</span>
+                        </h3>
+                        <span class="text-gray-500 text-sm">2025.2-2025.6</span>
                     </div>
-                    <p>
-                        <span class="zh">担任组长及软件工程师，基于TM4C1294C板卡开发发射机-接收机联合系统，实现双端通信。系统实现收发双通道温度信号、电压信号；设计UI界面可键控设置通信频率及声量；双端可播放指定歌曲；接收端实现录音功能。</span>
-                        <span class="en hidden">Served as the team leader and software engineer, developed a transmitter receiver joint system based on the TM4C1294C board, and achieved dual end communication. The system realizes the transmission and reception of dual channel temperature signals and voltage signals; Design a UI interface that can be key controlled to set communication frequency and volume; Both ends can play specified songs; The receiving end implements recording function.</span>
-                    </p>
+                    <div class="experience-content pt-4 border-t border-gray-100">
+                        <p>
+                            <span class="zh">担任组长及软件工程师，基于TM4C1294C板卡开发发射机-接收机联合系统，实现双端通信。系统实现收发双通道温度信号、电压信号；设计UI界面可键控设置通信频率及声量；双端可播放指定歌曲；接收端实现录音功能。</span>
+                            <span class="en hidden">Served as the team leader and software engineer, developed a transmitter receiver joint system based on the TM4C1294C board, and achieved dual end communication. The system realizes the transmission and reception of dual channel temperature signals and voltage signals; Design a UI interface that can be key controlled to set communication frequency and volume; Both ends can play specified songs; The receiving end implements recording function.</span>
+                        </p>
+                    </div>
                 </div>
-                <div class="bg-white rounded-lg shadow p-6">
-                    <h3 class="text-xl font-semibold mb-2">
-                        <span class="zh">数字时钟开发</span>
-                        <span class="en hidden">Digital Clock Design</span>
-                    </h3>
-                    <div class="text-gray-500 text-sm mb-2">
-                        <span class="zh">2025.5-2025.6</span>
-                        <span class="en hidden">2025.5-2024.6</span>
+                
+                <div class="experience-item bg-white rounded-lg shadow p-6 cursor-pointer">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                        <h3 class="text-xl font-semibold">
+                            <span class="zh">数字时钟开发</span>
+                            <span class="en hidden">Digital Clock Design</span>
+                        </h3>
+                        <span class="text-gray-500 text-sm">2025.5-2025.6</span>
                     </div>
-                    <p>
-                        <span class="zh">基于TMC1294C板卡开发数字时钟系统，实现日期-时刻流水灯显示，闹钟提示功能。时钟可键控设置当前日期、当前时间、闹钟时间；可通过UART虚拟串口指令设置并获取对应信息。</span>
-                        <span class="en hidden">Develop a digital clock system based on TMC1294C board to achieve date time flow light display and alarm clock prompt function. The clock can be key controlled to set the current date, current time, and alarm time; You can set and obtain corresponding information through UART virtual serial port commands.</span>
-                    </p>
+                    <div class="experience-content pt-4 border-t border-gray-100">
+                        <p>
+                            <span class="zh">基于TMC1294C板卡开发数字时钟系统，实现日期-时刻流水灯显示，闹钟提示功能。时钟可键控设置当前日期、当前时间、闹钟时间；可通过UART虚拟串口指令设置并获取对应信息。</span>
+                            <span class="en hidden">Develop a digital clock system based on TMC1294C board to achieve date time flow light display and alarm clock prompt function. The clock can be key controlled to set the current date, current time, and alarm time; You can set and obtain corresponding information through UART virtual serial port commands.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 其他经历 -->
+            <div id="activities-content" class="space-y-4 hidden">
+                <div class="experience-item bg-white rounded-lg shadow p-6 cursor-pointer">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                        <h3 class="text-xl font-semibold">
+                            <span class="zh">学生会 - 副主席</span>
+                            <span class="en hidden">Student Union - Vice President</span>
+                        </h3>
+                        <span class="text-gray-500 text-sm">2018.11-2019.6</span>
+                    </div>
+                </div>
+                
+                <div class="experience-item bg-white rounded-lg shadow p-6 cursor-pointer">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                        <h3 class="text-xl font-semibold">
+                            <span class="zh">全国大学生创新创业大赛志愿者</span>
+                            <span class="en hidden">Volunteer, 2024 National College Student Innovation Competition</span>
+                        </h3>
+                        <span class="text-gray-500 text-sm">2024.12</span>
+                    </div>
+                </div>
+
+                <div class="experience-item bg-white rounded-lg shadow p-6 cursor-pointer">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                        <h3 class="text-xl font-semibold">
+                            <span class="zh">香港理工大学暑期国际学校 - 交换生</span>
+                            <span class="en hidden">Hong Kong Polytechnic University International Summer School - Exchange Student</span>
+                        </h3>
+                        <span class="text-gray-500 text-sm">2025.7-2025.8</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -436,46 +504,6 @@
                 </ul>
             </div>
         </section>
-
-        <!-- 其他经历 -->
-        <section id="activities" class="section-content hidden">
-            <h2 class="text-3xl font-bold mb-6 pb-2 border-b">
-                <span class="zh">其他经历</span>
-                <span class="en hidden">Activities</span>
-            </h2>
-            
-            <div class="space-y-6">
-                <div class="bg-white rounded-lg shadow p-6">
-                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                        <h3 class="text-xl font-semibold">
-                            <span class="zh">学生会 - 副主席</span>
-                            <span class="en hidden">Student Union - Vice President</span>
-                        </h3>
-                        <span class="text-gray-600">2018.11-2019.6</span>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-lg shadow p-6">
-                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                        <h3 class="text-xl font-semibold">
-                            <span class="zh">全国大学生创新创业大赛志愿者</span>
-                            <span class="en hidden">Volunteer, 2024 National College Student Innovation Competition</span>
-                        </h3>
-                        <span class="text-gray-600">2024.12</span>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow p-6">
-                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                        <h3 class="text-xl font-semibold">
-                            <span class="zh">香港理工大学暑期国际学校 - 交换生</span>
-                            <span class="en hidden">Hong Kong Polytechnic University International Summer School - Exchange Student</span>
-                        </h3>
-                        <span class="text-gray-600">2025.7-2025.8<Student/span>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- 页脚 -->
@@ -547,6 +575,30 @@
                 langEnBtn.classList.remove('bg-gray-200', 'text-gray-700');
                 langZhBtn.classList.add('bg-gray-200', 'text-gray-700');
                 langZhBtn.classList.remove('bg-primary', 'text-white');
+            });
+            
+            // 个人经历切换功能
+            const btnProjects = document.getElementById('btn-projects');
+            const btnActivities = document.getElementById('btn-activities');
+            const projectsContent = document.getElementById('projects-content');
+            const activitiesContent = document.getElementById('activities-content');
+            
+            btnProjects.addEventListener('click', function() {
+                projectsContent.classList.remove('hidden');
+                activitiesContent.classList.add('hidden');
+                btnProjects.classList.add('bg-primary', 'text-white');
+                btnProjects.classList.remove('bg-gray-200', 'text-gray-700');
+                btnActivities.classList.add('bg-gray-200', 'text-gray-700');
+                btnActivities.classList.remove('bg-primary', 'text-white');
+            });
+            
+            btnActivities.addEventListener('click', function() {
+                activitiesContent.classList.remove('hidden');
+                projectsContent.classList.add('hidden');
+                btnActivities.classList.add('bg-primary', 'text-white');
+                btnActivities.classList.remove('bg-gray-200', 'text-gray-700');
+                btnProjects.classList.add('bg-gray-200', 'text-gray-700');
+                btnProjects.classList.remove('bg-primary', 'text-white');
             });
             
             // 滚动时导航栏样式变化
