@@ -1,3 +1,7 @@
-[个人简历](https://yiriyaaaaa.github.io/"个人简历")
+## 简历
+https://yiriyaaaaa.github.
 
-上次简历更新时间：2025.7.29 
+## 邮箱
+<qinca-omei@sjtu.edu.cn>
+
+Version 2025.7.29 
