@@ -1,5 +1,5 @@
 ## 简历
-https://yiriyaaaaa.github.
+https://yiriyaaaaa.github.io
 
 ## 邮箱
 <qinca-omei@sjtu.edu.cn>
